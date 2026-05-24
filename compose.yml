@@ -8,7 +8,8 @@ services:
     deploy:
       replicas: 3
     networks:
-      - mynetwork
+      - mynetwork1
+      - mynetwork2
 
   application:
     image: devstacksg/flmjava-app:app
@@ -19,8 +20,9 @@ services:
     depends_on:
       - devopsdb
     networks:
-      - mynetwork
+      - mynetwork2
+      - mynetwork1
 
 networks:
-  mynetwork:
-    driver : overlay
+  mynetwork1:
+  mynetwork2:
